@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Download JSON as CSV and PDF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   
+    <!-- need this 2 CDN for jspdf-autotable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js" integrity="sha256-gJWdmuCRBovJMD9D/TVdo4TIK8u5Sti11764sZT1DhI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.3/jspdf.plugin.autotable.min.js" integrity="sha256-8Wa9evITaf3eZpKzFIrEfVrQycFZ1C/IwuAwUkXnB94=" crossorigin="anonymous"></script>
+
+    <script src="./app.js" defer></script>
+</head>
+<body>
+<div class="container pt-5">
+    <button id='btnpdf' class="btn btn-primary mt-2 mb-2">download pdf</button>
+    <button id='btncsv' class="btn btn-primary mt-2 mb-2">download cvs</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+// to begin this project
+// example of convert JSON to PDF and CSV for download
+
+
+mkdir csvpdf
+cd csvpdf
+code .
+npm init -y
+npm install express jspdf jspdf-autotable --save
+npm install nodemon --save-dev
+
+// in package.json
+    "start-dev": "nodemon server"
+
+// create basic back end and front end directories and files
+mkdir server
+touch server/index.js
+mkdir public
+touch public/app.js public/index.html
+
+// run the server
+npm run start-dev
+
+
+////////////////////////////// PDF and CSV //////////////////////////////
+
+// resource
+I use jspdf-autotable to create PDF
+https://www.npmjs.com/package/jspdf-autotable
+I follow this stackoverflow to download CSV
+https://stackoverflow.com/questions/3665115/how-to-create-a-file-in-memory-for-user-to-download-but-not-through-server
+
+// in index.js
+just an empty node server for app to run
+
+
+// in index.html
+I add jspdf-autotable with CDN in html page
+
+
+// in app.js
+// PDF
+Use "jspdf" and its sublibrary "autotable" to convert JSON into PDF table.
+For table headers:
+We need to convert JSON array object keys to an array of keys
+For table body:
+We need to convert JSON array object values to array of array of values, expend the outer array into multiple array of values 
+The 'save()' method allow download
+// CSV
+We need to convert JSON array object keys to comma separated string follow by endline.
+Then convert each JSON array object values to comma separated string follow by endline, append to the same string.
+Use javascript to create a link set to downloadable attribute, include CSV string.
+
+
+
+// github repo
+echo "# csvpdf" >> README.md
+git init
+git add .
+git commit -m "used Puppeteer to scrape number of H1 and H2 and "goto" response "_status" for status code"
+git branch -M main
+git remote add origin https://github.com/fruit13ok/csvpdf.git
+git push -u origin main
