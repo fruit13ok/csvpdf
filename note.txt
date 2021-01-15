@@ -57,7 +57,7 @@ Use javascript to create a link set to downloadable attribute, include CSV strin
 echo "# csvpdf" >> README.md
 git init
 git add .
-git commit -m "used Puppeteer to scrape number of H1 and H2 and "goto" response "_status" for status code"
+git commit -m "convert JSON to PDF and CSV for download"
 git branch -M main
 git remote add origin https://github.com/fruit13ok/csvpdf.git
 git push -u origin main
