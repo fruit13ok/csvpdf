@@ -14,6 +14,26 @@ let jsonResult = [
     {item:'The How Not to Die Cookbook: 100+ Recipes to Help Prevent and Reverse Disease Kindle', price:14.99, quantity:1, shippingcost:0, deliverydays:0, ordernumber:00000000000000004, address:'726 Jackson PI NW Washington DC 20506', tax:0.085}
 ];
 
+// display JSON result in pre
+const displayResult = (jsonResult) => {
+    let pre = document.getElementById('preresult');
+    pre.innerHTML = JSON.stringify(jsonResult, null, 4);
+}
+
+// copy JSON result to clipboard, I use "textarea" to maintain text format
+// "input" will be string
+const copyToClipboard = () => {
+    var textToCopy = document.getElementById("preresult").innerText;
+    var tempInputElem = document.createElement("textarea"); // textarea save text format too
+    tempInputElem.type = "text";
+    tempInputElem.value = textToCopy;
+    document.body.appendChild(tempInputElem);
+    tempInputElem.select(); // select only work for input or textarea
+    tempInputElem.setSelectionRange(0, 99999)   // for mobile phone
+    document.execCommand("Copy");
+    document.body.removeChild(tempInputElem);
+}
+
 ////////////////////////////////// PDF //////////////////////////////////
 // make PDF with jspdf and jspdf-autotable
 // Default export is a4 paper, portrait, using millimeters for units
@@ -66,6 +86,9 @@ const convertAndDownloadCSV = (jsonResult) => {
 
 // submit button clicked, pass form data into scrape function and invoke it
 $(function(){
+    // display JSON result in pre
+    displayResult(jsonResult);
+
     // need start with static element for event binding on dynamically created elements
     $(".container").on("click", "#btnpdf", function(){
         convertAndDownloadPDF(jsonResult);
@@ -73,5 +96,10 @@ $(function(){
     // onclick convert JSON to CSV and download it
     $(".container").on("click", "#btncsv", function(){
         convertAndDownloadCSV(jsonResult);
+    });
+
+    // onclick copy result inside pre to clipboard
+    $(".container").on("click", "#btncopy", function(){
+        copyToClipboard();
     });
 });
